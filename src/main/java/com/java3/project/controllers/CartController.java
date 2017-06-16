@@ -20,7 +20,7 @@ public class CartController {
     private CartService cartService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<?> getCart(@RequestParam("userId") String userId) {
+    public ResponseEntity<?> getCart(@RequestParam("userId") int userId) {
 
         cartService.getUserCart(userId);
         return new ResponseEntity<>(null, HttpStatus.OK);

@@ -10,7 +10,6 @@ import javax.persistence.MappedSuperclass;
 public class CartPorductsID {
     int cartId;
     int productId;
-    int transactionId;
     int referenceId;
 
     public int getCartId() {
@@ -27,14 +26,6 @@ public class CartPorductsID {
 
     public void setProductId(int productId) {
         this.productId = productId;
-    }
-
-    public int getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(int transactionId) {
-        this.transactionId = transactionId;
     }
 
     public int getReferenceId() {

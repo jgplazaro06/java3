@@ -35,10 +35,6 @@ public class UserService {
         {
             user.setUserPass(newPass);
         }
-        else
-        {
-            //error handling
-        }
 
     }
     public void createUser(int role, String userPass, String givenName, String email, String address, String gender, String contact){

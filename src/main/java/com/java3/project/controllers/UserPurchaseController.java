@@ -1,7 +1,7 @@
 package com.java3.project.controllers;
 
-import io.bmdc.samplespring.data.UserPurchaseRepository;
-import io.bmdc.samplespring.domain.UserPurchase;
+import com.java3.project.data.UserPurchaseRepository;
+import com.java3.project.domain.UserPurchase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

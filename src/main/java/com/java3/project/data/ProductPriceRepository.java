@@ -10,6 +10,7 @@ import java.util.List;
  */
 public interface ProductPriceRepository extends CrudRepository<ProductPrices, Integer> {
     List<ProductPrices> getAllByProductId(int productID);
+    ProductPrices getByProductId(int productId);
     ProductPrices findFirstByOrderByReferenceDateDesc();
 
 //    @Query("select p.`ProductName`, pp.`ProductPrice` from `Products` as p left join `ProductPrices` as pp on p.`ProductID` = pp.`ProductID` where p.`ProductID` = :productId")

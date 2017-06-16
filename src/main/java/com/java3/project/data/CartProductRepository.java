@@ -11,4 +11,8 @@ import java.util.List;
  */
 public interface CartProductRepository extends CrudRepository<CartProducts, Integer> {
    List<CartProducts> getByCartId(int cartId);
+   void deleteByCartIdAndProductId(int cartId, int productId);
+   CartProducts getByCartIdAndProductId(int cartId, int productId);
+   List<CartProducts> getAllByCartIdAndBranchId(int cartId, int branchId);
+
 }

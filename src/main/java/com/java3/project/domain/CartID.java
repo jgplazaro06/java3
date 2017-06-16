@@ -8,10 +8,8 @@ import java.sql.Timestamp;
  */
 @MappedSuperclass
 public class CartID {
-    int cartId;
-    int userId;
-    int status;
-    int branchId;
+    private int cartId;
+    private int userId;
 
     public int getCartId() {
         return cartId;
@@ -27,21 +25,5 @@ public class CartID {
 
     public void setUserId(int userId) {
         this.userId = userId;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public int getBranchId() {
-        return branchId;
-    }
-
-    public void setBranchId(int branchId) {
-        this.branchId = branchId;
     }
 }

@@ -1,5 +1,6 @@
 package com.java3.project.data;
 
+import com.java3.project.domain.Branch;
 import com.java3.project.domain.BranchProducts;
 import org.springframework.data.repository.CrudRepository;
 

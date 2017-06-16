@@ -1,6 +1,7 @@
 package com.java3.project.domain;
 
 import javax.persistence.Entity;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /**
@@ -13,34 +14,10 @@ public class Cart {
     private int userId;
     private int status;
     private Timestamp referenceDate;
-    private int branchId;
+    private BigDecimal userCash;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Cart cart = (Cart) o;
-
-        if (cartId != cart.cartId) return false;
-        if (userId != cart.userId) return false;
-        if (status != cart.status) return false;
-        if (branchId != cart.branchId) return false;
-        return referenceDate != null ? referenceDate.equals(cart.referenceDate) : cart.referenceDate == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = cartId;
-        result = 31 * result + userId;
-        result = 31 * result + status;
-        result = 31 * result + (referenceDate != null ? referenceDate.hashCode() : 0);
-        result = 31 * result + branchId;
-        return result;
-    }
 
     public int getCartId() {
-
         return cartId;
     }
 
@@ -72,11 +49,36 @@ public class Cart {
         this.referenceDate = referenceDate;
     }
 
-    public int getBranchId() {
-        return branchId;
+    public BigDecimal getUserCash() {
+        return userCash;
     }
 
-    public void setBranchId(int branchId) {
-        this.branchId = branchId;
+    public void setUserCash(BigDecimal userCash) {
+        this.userCash = userCash;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Cart cart = (Cart) o;
+
+        if (cartId != cart.cartId) return false;
+        if (userId != cart.userId) return false;
+        if (status != cart.status) return false;
+        if (referenceDate != null ? !referenceDate.equals(cart.referenceDate) : cart.referenceDate != null)
+            return false;
+        return userCash != null ? userCash.equals(cart.userCash) : cart.userCash == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = cartId;
+        result = 31 * result + userId;
+        result = 31 * result + status;
+        result = 31 * result + (referenceDate != null ? referenceDate.hashCode() : 0);
+        result = 31 * result + (userCash != null ? userCash.hashCode() : 0);
+        return result;
     }
 }

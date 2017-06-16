@@ -9,36 +9,12 @@ import javax.persistence.Entity;
 public class CartProducts {
     private int cartId;
     private int productId;
-    private int transactionId;
     private int quantity;
     private int referenceId;
+    private int branchId;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        CartProducts that = (CartProducts) o;
-
-        if (cartId != that.cartId) return false;
-        if (productId != that.productId) return false;
-        if (transactionId != that.transactionId) return false;
-        if (quantity != that.quantity) return false;
-        return referenceId == that.referenceId;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = cartId;
-        result = 31 * result + productId;
-        result = 31 * result + transactionId;
-        result = 31 * result + quantity;
-        result = 31 * result + referenceId;
-        return result;
-    }
 
     public int getCartId() {
-
         return cartId;
     }
 
@@ -52,14 +28,6 @@ public class CartProducts {
 
     public void setProductId(int productId) {
         this.productId = productId;
-    }
-
-    public int getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(int transactionId) {
-        this.transactionId = transactionId;
     }
 
     public int getQuantity() {
@@ -76,5 +44,37 @@ public class CartProducts {
 
     public void setReferenceId(int referenceId) {
         this.referenceId = referenceId;
+    }
+
+    public int getBranchId() {
+        return branchId;
+    }
+
+    public void setBranchId(int branchId) {
+        this.branchId = branchId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CartProducts that = (CartProducts) o;
+
+        if (cartId != that.cartId) return false;
+        if (productId != that.productId) return false;
+        if (quantity != that.quantity) return false;
+        if (referenceId != that.referenceId) return false;
+        return branchId == that.branchId;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = cartId;
+        result = 31 * result + productId;
+        result = 31 * result + quantity;
+        result = 31 * result + referenceId;
+        result = 31 * result + branchId;
+        return result;
     }
 }

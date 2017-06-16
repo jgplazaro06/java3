@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BranchRepository extends CrudRepository<Branch, Integer> {
+    Branch getByBranchId(int branchId);
 
 }
