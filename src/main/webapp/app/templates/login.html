@@ -1,0 +1,17 @@
+<div ng-controller="LoginController as vm">
+    <div class="container">
+        <form class="form-signin">
+            <h2 class="form-signin-heading">Please sign in</h2>
+
+            <label for="inputUsername" class="sr-only">Username</label>
+            <input type="text" id="inputUsername" class="form-control" ng-model="vm.username"
+                   placeholder="Username" required autofocus>
+
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" ng-model="vm.password"
+                   placeholder="Password" required>
+
+            <button class="btn btn-lg btn-primary btn-block" ng-click="vm.login()">Sign in</button>
+        </form>
+    </div>
+</div>

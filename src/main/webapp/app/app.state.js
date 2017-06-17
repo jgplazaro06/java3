@@ -15,7 +15,10 @@
             })
             .state('login', {
                 url: '/login',
-                templateUrl: 'app/templates/login.html'
+                templateUrl: 'app/templates/login.html',
+                params: {
+                    returnUrl: null
+                }
             })
             .state('register', {
                 url: '/register',
