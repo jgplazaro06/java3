@@ -1,7 +1,9 @@
 package com.java3.project.services;
 
+import com.java3.project.data.BranchProductRepository;
 import com.java3.project.data.CartProductRepository;
 import com.java3.project.data.CartRepository;
+import com.java3.project.domain.BranchProducts;
 import com.java3.project.domain.Cart;
 import com.java3.project.domain.CartProducts;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class CartService {
 
     @Autowired
     CartProductRepository cartProductRepository;
+
+    @Autowired
+    BranchProductRepository branchProductRepository;
 
     public Cart getUserCart(int userId) {
         // TODO
@@ -69,13 +74,22 @@ public class CartService {
         List<CartProducts> cartProducts = cartProductRepository.getByCartId(cart.getCartId());
         for (CartProducts cartProduct : cartProducts) {
             boolean b = cartProduct.getQuantity() > 0;
-            // TODO: check if product is still available sa specified branch
             if (b)
                 throw new UnavailableBranchProduct(cartProduct.getProductId());
+            else
+            {
+                BranchProducts branchProducts = branchProductRepository.getByBranchIdAndProductId
+                        (cartProduct.getBranchId(), cartProduct.getProductId());
+                if(branchProducts.getQuantity() < cartProduct.getQuantity()){
+                    throw new UnavailableBranchProduct(cartProduct.getProductId());
+                }
+                else
+                {
+                    cart.setStatus(1);
+                    cart.setUserCash(cash);
+                }
+            }
         }
-
-        cart.setStatus(1);
-        cart.setUserCash(cash);
 
         throw new UnsupportedOperationException();
     }

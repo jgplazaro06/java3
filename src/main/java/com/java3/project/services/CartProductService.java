@@ -42,8 +42,7 @@ public class CartProductService {
         cartProduct.setProductId(productId);
         cartProduct.setBranchId(branchId);
         cartProduct.setQuantity(quantity);
-        ProductPrices productPrice = new ProductPrices();
-        productPrice = productPriceRepository.getByProductId(productId);
+        ProductPrices productPrice = productPriceRepository.getByProductId(productId);
         cartProduct.setReferenceId(productPrice.getReferenceId());
     }
 

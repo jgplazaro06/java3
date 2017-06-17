@@ -2,6 +2,7 @@ package com.java3.project.services;
 
 import com.java3.project.data.UserRepository;
 import com.java3.project.domain.Users;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,14 +24,12 @@ public class UserService {
     }
 
     public Users getUserById(int userId){
-        Users user = new Users();
-        user = userRepository.getByUserId(userId);
+        Users user = userRepository.getByUserId(userId);
         return user;
     }
 
     public void updateUser(int userId, String newPass){
-        Users user = new Users();
-        user = userRepository.getByUserId(userId);
+        Users user = userRepository.getByUserId(userId);
         if(user != null)
         {
             user.setUserPass(newPass);
@@ -39,29 +38,31 @@ public class UserService {
     }
     public void createUser(int role, String userPass, String givenName, String email, String address, String gender, String contact){
         //check if email already exist
-        List<Users> users = StreamSupport.stream(userRepository.findAll().spliterator(), false).collect(Collectors.toList());
-        boolean doesExist = false;
-        for (Users user : users) {
-            if(user.getEmail().equals(email))
-            {
-                //error message
-                doesExist = true;
-                break;
-            }
-        }
+//        List<Users> users = StreamSupport.stream(userRepository.findAll().spliterator(), false).collect(Collectors.toList());
+//        boolean doesExist = false;
+//        for (Users user : users) {
+//            if(user.getEmail().equals(email))
+//            {
+//                //error message
+//                doesExist = true;
+//                break;
+//            }
+//        }
 
-        if(!doesExist)
-        {
-            Users user = new Users();
-            user.setUserPass(userPass);
-            user.setGivenName(givenName);
-            user.setEmail(email);
-            user.setAddress(address);
-            user.setGender(gender);
-            user.setContact(contact);
-            user.setRole(role);
-            userRepository.save(user);
-        }
+        Users user = new Users();
+        user.setUserPass(userPass);
+        user.setGivenName(givenName);
+        user.setEmail(email);
+        user.setAddress(address);
+        user.setGender(gender);
+        user.setContact(contact);
+        user.setRole(role);
+    }
+
+
+    public boolean userExist(String email){
+        Users user = userRepository.getByEmail(email);
+        return user!=null;
     }
 
 

@@ -8,5 +8,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface UserRepository extends CrudRepository<Users, Integer>{
     Users getByUserId(int userId);
+    Users getByEmail(String email);
 
 }

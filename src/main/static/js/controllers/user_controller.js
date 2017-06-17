@@ -68,13 +68,12 @@ angular.module('app').controller('UserController', ['$scope', 'UserService', fun
         else{
             console.log('Creating User', self.user);
             createUser(user);
-
         }
         reset();
     }
     
     function reset(){
-    self.user={iduserPass:'',givenName:'',email:'',address:'',gender:'',contact:''};
+    self.user={id:null,userPass:'',givenName:'',email:'',address:'',gender:'',contact:''};
     $scope.myForm.$setPristine();
     }
 
