@@ -14,6 +14,11 @@
     <app-nav></app-nav>
     <div class="container">
         <div ui-view></div>
+
+        <div class="footer" style="margin-top: 20px;">
+            <p style="text-align:center; color:dimgray; font-size:8pt;">Copyright &copy; 2017</p>
+            <p style="text-align:center; color:dimgray; font-size:8pt;">Java 3 Project by John Lazaro and Ezekiel Flores</p>
+        </div>
     </div>
 
     <!-- ANGULAR STUFF -->
@@ -27,16 +32,19 @@
     <script src="app/app.state.js"></script>
 
     <!-- SERVICES -->
-    <script src="app/services/mock-auth.impl.service.js"></script>
-    <script src="app/services/mock-user.impl.service.js"></script>
+    <script src="app/services/mock-impl/mock-auth.impl.service.js"></script>
+    <script src="app/services/mock-impl/mock-user.impl.service.js"></script>
+    <script src="app/services/mock-impl/mock-product.impl.service.js"></script>
     <script src="app/services/auth.service.js"></script>
     <script src="app/services/user.service.js"></script>
+    <script src="app/services/product.service.js"></script>
 
     <!-- DIRECTIVES -->
     <script src="app/directives/app-nav/app-nav.controller.js"></script>
     <script src="app/directives/app-nav/app-nav.directive.js"></script>
 
     <!-- CONTROLLERS -->
+    <script src="app/controllers/home.controller.js"></script>
     <script src="app/controllers/login.controller.js"></script>
     <script src="app/controllers/register.controller.js"></script>
     <script src="app/controllers/cart.controller.js"></script>
