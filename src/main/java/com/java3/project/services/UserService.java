@@ -33,6 +33,7 @@ public class UserService {
         if(user != null)
         {
             user.setUserPass(newPass);
+            userRepository.save(user);
         }
 
     }
@@ -57,6 +58,7 @@ public class UserService {
         user.setGender(gender);
         user.setContact(contact);
         user.setRole(role);
+        userRepository.save(user);
     }
 
 

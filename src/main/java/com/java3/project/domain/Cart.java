@@ -1,6 +1,6 @@
 package com.java3.project.domain;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
@@ -9,6 +9,7 @@ import java.sql.Timestamp;
  */
 
 @Entity
+@IdClass(CartID.class)
 public class Cart {
     private int cartId;
     private int userId;
@@ -17,6 +18,8 @@ public class Cart {
     private BigDecimal userCash;
 
 
+    @Id
+    @Column(name = "CartID")
     public int getCartId() {
         return cartId;
     }
@@ -25,6 +28,8 @@ public class Cart {
         this.cartId = cartId;
     }
 
+    @Id
+    @Column(name = "UserID")
     public int getUserId() {
         return userId;
     }
@@ -33,6 +38,8 @@ public class Cart {
         this.userId = userId;
     }
 
+    @Basic
+    @Column(name = "Status")
     public int getStatus() {
         return status;
     }
@@ -41,6 +48,8 @@ public class Cart {
         this.status = status;
     }
 
+    @Basic
+    @Column(name = "ReferenceDate")
     public Timestamp getReferenceDate() {
         return referenceDate;
     }
@@ -49,6 +58,8 @@ public class Cart {
         this.referenceDate = referenceDate;
     }
 
+    @Basic
+    @Column(name = "UserCash")
     public BigDecimal getUserCash() {
         return userCash;
     }

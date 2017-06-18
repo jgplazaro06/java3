@@ -38,7 +38,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "users/update/{userId}/{newpass}", method = RequestMethod.PUT)
-    public void updateUser(@PathVariable int userID, @PathVariable String newPass){
+    public void updateUser(@RequestParam int userID, @RequestParam String newPass){
         userService.updateUser(userID, newPass);
     }
 

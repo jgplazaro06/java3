@@ -1,11 +1,12 @@
 package com.java3.project.domain;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  * Created by John Lazaro on 17/06/2017.
  */
 @Entity
+@IdClass(CartProductsID.class)
 public class CartProducts {
     private int cartId;
     private int productId;
@@ -14,6 +15,8 @@ public class CartProducts {
     private int branchId;
 
 
+    @Id
+    @Column(name = "CartID")
     public int getCartId() {
         return cartId;
     }
@@ -22,6 +25,9 @@ public class CartProducts {
         this.cartId = cartId;
     }
 
+
+    @Id
+    @Column(name = "ProductID")
     public int getProductId() {
         return productId;
     }
@@ -30,6 +36,9 @@ public class CartProducts {
         this.productId = productId;
     }
 
+
+    @Basic
+    @Column(name = "Quantity")
     public int getQuantity() {
         return quantity;
     }
@@ -38,6 +47,8 @@ public class CartProducts {
         this.quantity = quantity;
     }
 
+    @Id
+    @Column(name = "ReferenceID")
     public int getReferenceId() {
         return referenceId;
     }
@@ -46,6 +57,8 @@ public class CartProducts {
         this.referenceId = referenceId;
     }
 
+    @Id
+    @Column(name = "BranchID")
     public int getBranchId() {
         return branchId;
     }

@@ -87,11 +87,33 @@ public class CartService {
                 {
                     cart.setStatus(1);
                     cart.setUserCash(cash);
+                    cartRepository.save(cart);
                 }
             }
         }
 
         throw new UnsupportedOperationException();
+    }
+
+    public Cart getPendingCart(int userId){
+        Cart cart = cartRepository.getByUserIdAndStatus(userId, 1);
+        if (cart == null) {
+            return null;
+        }
+        return cart;
+    }
+
+    //approve cart
+    public void approveCart(int userId){
+        Cart cart = getPendingCart(userId);
+        cart.setStatus(2);
+        cartRepository.save(cart);
+    }
+    //deny cart
+    public void denyCart(int userId){
+        Cart cart = getPendingCart(userId);
+        cart.setStatus(3);
+        cartRepository.save(cart);
     }
 
     public class UnavailableBranchProduct extends RuntimeException {
@@ -106,6 +128,5 @@ public class CartService {
         }
     }
 
-    //approve cart
-    //deny cart
+
 }

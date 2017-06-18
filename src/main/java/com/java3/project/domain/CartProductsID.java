@@ -2,15 +2,25 @@ package com.java3.project.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
 
 /**
  * Created by John Lazaro on 17/06/2017.
  */
 @MappedSuperclass
-public class CartPorductsID {
+public class CartProductsID implements Serializable {
     int cartId;
     int productId;
     int referenceId;
+    private int branchId;
+
+    public int getBranchId() {
+        return branchId;
+    }
+
+    public void setBranchId(int branchId) {
+        this.branchId = branchId;
+    }
 
     public int getCartId() {
         return cartId;

@@ -1,13 +1,14 @@
 package com.java3.project.domain;
 
 import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
  * Created by John Lazaro on 17/06/2017.
  */
 @MappedSuperclass
-public class CartID {
+public class CartID implements Serializable {
     private int cartId;
     private int userId;
 
