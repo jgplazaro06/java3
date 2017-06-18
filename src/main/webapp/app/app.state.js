@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app', ['ui.router'])
+        .module('app')
         .config(StateConfig);
 
     function StateConfig($stateProvider, $urlRouterProvider) {
@@ -37,6 +37,8 @@
             })
             .state('cart', {
                 url: '/cart',
+                controller: 'CartController',
+                controllerAs: 'vm',
                 templateUrl: 'app/templates/cart.html'
             })
             .state('checkout', {
@@ -45,6 +47,8 @@
             })
             .state('account', {
                 url: '/account',
+                controller: 'AccountController',
+                controllerAs: 'vm',
                 templateUrl: 'app/templates/account.html'
             })
             .state('account-update', {

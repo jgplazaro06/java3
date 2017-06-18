@@ -7,6 +7,7 @@
 
     function MockAuthServiceImpl($rootScope, $q) {
         var isLoggedIn = false;
+        var userdata = null;
 
         var notifySubscribers = function() {
             $rootScope.$emit('login-update');
@@ -26,11 +27,32 @@
 
                 return deferred.promise;
             },
-            checkAuthorization: function(requestCode, userId, token) {
+            checkAuthorization: function(resourceToAccess) {
                 var deferred = $q.defer();
 
                 setTimeout(function () {
-                    deferred.resolve();
+                    if (isLoggedIn) {
+                        // TODO: Perform a request to check if the user can
+                        // access the requested resource using information
+                        // in the userdata.
+
+                        deferred.resolve();
+                    } else {
+                        deferred.reject();
+                    }
+                }, 1000);
+
+                return deferred.promise;
+            },
+            getUserdata: function() {
+                var deferred = $q.defer();
+
+                setTimeout(function () {
+                    if (isLoggedIn) {
+                        deferred.resolve(userdata);
+                    } else {
+                        deferred.reject();
+                    }
                 }, 1000);
 
                 return deferred.promise;
@@ -40,12 +62,12 @@
 
                 setTimeout(function () {
                     isLoggedIn = true;
-
-                    deferred.resolve({
+                    userdata = {
                         userId: '192883',
                         token: '10Ij2-&&91j-psoi('
-                    });
+                    };
 
+                    deferred.resolve(userdata);
                     notifySubscribers();
                 }, 3000);
 
@@ -56,9 +78,9 @@
 
                 setTimeout(function () {
                     isLoggedIn = false;
+                    userdata = null;
 
                     deferred.resolve();
-
                     notifySubscribers();
                 }, 3000);
 
@@ -69,12 +91,12 @@
 
                 setTimeout(function () {
                     isLoggedIn = true;
-
-                    deferred.resolve({
+                    userdata = {
                         userId: '192883',
                         token: '10Ij2-&&91j-psoi('
-                    });
+                    };
 
+                    deferred.resolve(userdata);
                     notifySubscribers();
                 }, 3000);
 

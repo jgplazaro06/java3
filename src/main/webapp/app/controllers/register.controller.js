@@ -11,13 +11,6 @@
         vm.returnUrl = '';
 
         vm.form = {};
-        vm.form.fullName = '';
-        vm.form.email = '';
-        vm.form.password = '';
-        vm.form.confirmPassword = '';
-        vm.form.contactNumber = '';
-        vm.form.address = '';
-        vm.form.gender = '';
 
         vm.reset = function() {
             vm.form.fullName = '';
@@ -28,6 +21,7 @@
             vm.form.address = '';
             vm.form.gender = '';
         };
+        vm.reset();
 
         vm.register = function() {
             // TODO: validate form here

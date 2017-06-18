@@ -27,6 +27,9 @@
         vm.goToCartPage = function() {
             $state.go('cart');
         };
+        vm.goToAccountPage = function() {
+            $state.go('account');
+        };
         vm.logOut = function() {
             AuthService.logout('userId', 'token').then(function() {
                 $state.go('home');
