@@ -19,6 +19,7 @@
                 <li ng-if="vm.isAuthReady && vm.isLoggedIn"><a ng-click="vm.logOut()">Log out</a></li>
                 <li ng-if="vm.isAuthReady && vm.isLoggedIn"><a ng-click="vm.goToCartPage()">Cart</a></li>
                 <li ng-if="vm.isAuthReady && !vm.isLoggedIn"><a ng-click="vm.goToLoginPage()">Log in</a></li>
+                <li ng-if="vm.isAuthReady && !vm.isLoggedIn"><a ng-click="vm.goToRegistrationPage()">Register</a></li>
             </ul>
         </div>
     </div>

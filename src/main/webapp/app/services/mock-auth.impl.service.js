@@ -63,6 +63,22 @@
                 }, 3000);
 
                 return deferred.promise;
+            },
+            register: function(userDetails) {
+                var deferred = $q.defer();
+
+                setTimeout(function () {
+                    isLoggedIn = true;
+
+                    deferred.resolve({
+                        userId: '192883',
+                        token: '10Ij2-&&91j-psoi('
+                    });
+
+                    notifySubscribers();
+                }, 3000);
+
+                return deferred.promise;
             }
         }
     }

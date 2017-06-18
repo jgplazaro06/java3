@@ -1,4 +1,64 @@
-<div class="jumbotron text-center">
-    <h1>Register Page</h1>
-    <p>Lorem ipsum dolor sit amet consectur adisciping elit.</p>
+<div class="container">
+    <form class="form-register">
+        <img class="register-img" src="../../img/register-doodle.jpg"/>
+        <h2 class="form-register-heading">Register</h2>
+        <p>Already registered? Click <a ng-click="vm.login()" class="link">here</a> to login.</p>
+
+        <div class="form-group">
+            <label for="inputFullName">Full name</label>
+            <input type="text" id="inputFullName" class="form-control" ng-model="vm.form.fullName"
+                   placeholder="Full name" autofocus>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail">E-mail</label>
+            <input type="email" id="inputEmail" class="form-control" ng-model="vm.form.email"
+                   placeholder="E-mail">
+        </div>
+
+        <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input type="password" id="inputPassword" class="form-control" ng-model="vm.form.password"
+                   placeholder="Password">
+        </div>
+
+        <div class="form-group">
+            <label for="inputConfirmPassword">Confirm password</label>
+            <input type="password" id="inputConfirmPassword" class="form-control" ng-model="vm.form.confirmPassword"
+                   placeholder="Confirm password">
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="form-control">
+                <label class="radio-inline">
+                    <input type="radio" name="genderOptions" ng-model="vm.form.gender" value="M"> Male
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="genderOptions" ng-model="vm.form.gender" value="F"> Female
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputContactNumber">Contact number</label>
+            <input type="text" id="inputContactNumber" class="form-control" ng-model="vm.form.contactNumber"
+                   placeholder="Contact number">
+        </div>
+
+        <div class="form-group">
+            <label for="inputAddress">Contact number</label>
+            <input type="text" id="inputAddress" class="form-control" ng-model="vm.form.address"
+                   placeholder="Address">
+        </div>
+
+        <div class="row registration-buttons">
+            <div class="col-sm-4">
+                <button class="btn btn-lg btn-default btn-block" ng-click="vm.reset()">Reset</button>
+            </div>
+            <div class="col-sm-8">
+                <button class="btn btn-lg btn-primary btn-block" ng-click="vm.register()">Register</button>
+            </div>
+        </div>
+    </form>
 </div>

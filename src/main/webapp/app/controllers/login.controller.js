@@ -29,6 +29,15 @@
             });
         };
 
+        vm.register = function() {
+            var params = {};
+            if (vm.hasReturnUrl) {
+                params.returnUrl = vm.returnUrl;
+            }
+
+            $state.go('register', params);
+        };
+
         if ($stateParams.returnUrl) {
             vm.hasReturnUrl = true;
             vm.returnUrl = $stateParams.returnUrl;

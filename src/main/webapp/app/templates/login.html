@@ -1,17 +1,23 @@
-<div ng-controller="LoginController as vm">
-    <div class="container">
-        <form class="form-signin">
-            <h2 class="form-signin-heading">Please sign in</h2>
+<div class="container">
+    <div class="row">
+        <img class="login-img" src="../../img/login-doodle.jpg"/>
+    </div>
 
-            <label for="inputUsername" class="sr-only">Username</label>
-            <input type="text" id="inputUsername" class="form-control" ng-model="vm.username"
-                   placeholder="Username" required autofocus>
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Hello there!</h2>
 
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" ng-model="vm.password"
-                   placeholder="Password" required>
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input type="text" id="inputUsername" class="form-control" ng-model="vm.username"
+               placeholder="Username" autofocus>
 
-            <button class="btn btn-lg btn-primary btn-block" ng-click="vm.login()">Sign in</button>
-        </form>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" ng-model="vm.password"
+               placeholder="Password">
+
+        <button class="btn btn-lg btn-primary btn-block" ng-click="vm.login()">Sign in</button>
+    </form>
+
+    <div class="registration-info">
+        <p>Not yet a member? Click <a ng-click="vm.register()" class="link">here</a> to register.</p>
     </div>
 </div>

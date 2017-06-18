@@ -19,6 +19,11 @@
                 returnUrl: $location.path()
             });
         };
+        vm.goToRegistrationPage = function() {
+            $state.go('register', {
+                returnUrl: $location.path()
+            });
+        };
         vm.goToCartPage = function() {
             $state.go('cart');
         };

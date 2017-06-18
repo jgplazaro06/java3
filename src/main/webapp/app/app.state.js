@@ -15,6 +15,8 @@
             })
             .state('login', {
                 url: '/login',
+                controller: 'LoginController',
+                controllerAs: 'vm',
                 templateUrl: 'app/templates/login.html',
                 params: {
                     returnUrl: null
@@ -22,7 +24,12 @@
             })
             .state('register', {
                 url: '/register',
-                templateUrl: 'app/templates/register.html'
+                controller: 'RegisterController',
+                controllerAs: 'vm',
+                templateUrl: 'app/templates/register.html',
+                params: {
+                    returnUrl: null
+                }
             })
             .state('error', {
                 url: '/error',
