@@ -2,6 +2,24 @@
     <div class="page-header">
         <h3>Account Details</h3>
     </div>
+
+    <div class="alert alert-success alert-dismissible" role="alert" ng-show="vm.shouldShowEmailSuccessful && vm.changeEmailSuccessful">
+        <button type="button" class="close" aria-label="Close" ng-click="vm.shouldShowEmailSuccessful = false"><span aria-hidden="true">&times;</span></button>
+        <strong>Yahoo!</strong> Your email was successfully changed.
+    </div>
+    <div class="alert alert-danger alert-dismissible" role="alert" ng-show="vm.shouldShowEmailSuccessful && !vm.changeEmailSuccessful">
+        <button type="button" class="close" aria-label="Close" ng-click="vm.shouldShowEmailSuccessful = false"><span aria-hidden="true">&times;</span></button>
+        <strong>oh no!</strong> Your email was not successfully changed.
+    </div>
+    <div class="alert alert-success alert-dismissible" role="alert" ng-show="vm.shouldShowPasswordSuccessful && vm.changePasswordSuccessful">
+        <button type="button" class="close" aria-label="Close" ng-click="vm.shouldShowPasswordSuccessful = false"><span aria-hidden="true">&times;</span></button>
+        <strong>Yahoo!</strong> Your password was successfully changed.
+    </div>
+    <div class="alert alert-danger alert-dismissible" role="alert" ng-show="vm.shouldShowPasswordSuccessful && !vm.changePasswordSuccessful">
+        <button type="button" class="close" aria-label="Close" ng-click="vm.shouldShowPasswordSuccessful = false"><span aria-hidden="true">&times;</span></button>
+        <strong>oh no!</strong> Your password was not successfully changed.
+    </div>
+
     <form class="form-horizontal">
         <div class="form-group">
             <label class="col-sm-2 control-label">Full Name</label>
@@ -42,7 +60,7 @@
                     <button class="btn btn-default btn-block" ng-click="">Change email</button>
                 </div>
                 <div class="col-xs-6">
-                    <button class="btn btn-default btn-block" ng-click="">Change password</button>
+                    <button class="btn btn-default btn-block" ng-click="vm.changePassword()">Change password</button>
                 </div>
             </div>
         </div>

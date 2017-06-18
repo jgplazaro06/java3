@@ -3,12 +3,26 @@
         .module('app')
         .controller('AccountController', AccountController);
 
-    AccountController.$inject = ['$state', '$location', 'UserService'];
+    AccountController.$inject = ['$state', '$stateParams', '$location', 'UserService'];
 
-    function AccountController($state, $location, UserService) {
+    function AccountController($state, $stateParams, $location, UserService) {
         var vm = this;
+
         vm.hideAll = true;
-        vm.accountDetails = {};
+        vm.shouldShowPasswordSuccessful = $stateParams.isPasswordChangeSuccessful !== null;
+        vm.shouldShowEmailSuccessful = $stateParams.isEmailChangeSuccessful !== null;
+        vm.changePasswordSuccessful = $stateParams.isPasswordChangeSuccessful;
+        vm.changeEmailSuccessful = $stateParams.isEmailChangeSuccessful;
+        vm.accountDetails = null;
+
+        vm.changePassword = function() {
+            $state.go('password-update');
+        };
+
+        vm.changeEmail = function() {
+            // not yet supported
+        };
+
 
         UserService.getAccountDetails().then(function(accountDetails) {
             vm.hideAll = false;

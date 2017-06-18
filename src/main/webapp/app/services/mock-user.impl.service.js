@@ -32,14 +32,39 @@
 
                 return deferred.promise;
             },
+            changePassword: function(oldPassword, newPassword) {
+                var deferred = $q.defer();
+
+                AuthService.checkAuthorization('userChangePassword').then(function() {
+                    // TODO: get user's id from userdata
+                    setTimeout(function() {
+                        deferred.resolve();
+                    }, 1000);
+                }, function(error) {
+                    deferred.reject(error);
+                });
+
+                return deferred.promise;
+            },
+            changeEmail: function(oldEmail, newEmail) {
+                var deferred = $q.defer();
+
+                AuthService.checkAuthorization('userChangeEmail').then(function() {
+                    // TODO: get user's id from userdata
+                    setTimeout(function() {
+                        deferred.resolve();
+                    }, 1000);
+                }, function(error) {
+                    deferred.reject(error);
+                });
+
+                return deferred.promise;
+            },
             getCart: function() {
                 var deferred = $q.defer();
 
-                AuthService.getUserdata().then(function(userdata) {
-                    return AuthService.checkAuthorization(userdata, 'userCartRetrieval');
-                }, function(error) {
-                    deferred.reject(error);
-                }).then(function() {
+                AuthService.checkAuthorization('userCartRetrieval').then(function() {
+                    // TODO: get user's id from userdata
                     deferred.resolve(userCart);
                 }, function(error) {
                     deferred.reject(error);
@@ -50,11 +75,8 @@
             updateCart: function(cart) {
                 var deferred = $q.defer();
 
-                AuthService.getUserdata().then(function(userdata) {
-                    return AuthService.checkAuthorization(userdata, 'userCartUpdate');
-                }, function(error) {
-                    deferred.reject(error);
-                }).then(function() {
+                AuthService.checkAuthorization('userCartUpdate').then(function() {
+                    // TODO: get user's id from userdata
                     userCart = cart;
                     deferred.resolve(userCart);
                 }, function(error) {

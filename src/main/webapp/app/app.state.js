@@ -15,18 +15,18 @@
             })
             .state('login', {
                 url: '/login',
+                templateUrl: 'app/templates/login.html',
                 controller: 'LoginController',
                 controllerAs: 'vm',
-                templateUrl: 'app/templates/login.html',
                 params: {
                     returnUrl: null
                 }
             })
             .state('register', {
                 url: '/register',
+                templateUrl: 'app/templates/register.html',
                 controller: 'RegisterController',
                 controllerAs: 'vm',
-                templateUrl: 'app/templates/register.html',
                 params: {
                     returnUrl: null
                 }
@@ -37,9 +37,9 @@
             })
             .state('cart', {
                 url: '/cart',
+                templateUrl: 'app/templates/cart.html',
                 controller: 'CartController',
-                controllerAs: 'vm',
-                templateUrl: 'app/templates/cart.html'
+                controllerAs: 'vm'
             })
             .state('checkout', {
                 url: '/checkout',
@@ -47,13 +47,19 @@
             })
             .state('account', {
                 url: '/account',
+                templateUrl: 'app/templates/account.html',
                 controller: 'AccountController',
                 controllerAs: 'vm',
-                templateUrl: 'app/templates/account.html'
+                params: {
+                    isPasswordChangeSuccessful: null,
+                    isEmailChangeSuccessful: null
+                }
             })
-            .state('account-update', {
-                url: '/account/update',
-                templateUrl: 'app/templates/account-update.html'
+            .state('password-update', {
+                url: '/account/update/password',
+                templateUrl: 'app/templates/password-update.html',
+                controller: 'PasswordUpdateController',
+                controllerAs: 'vm'
             })
             .state('branch', {
                 url: '/branch',
