@@ -16,6 +16,8 @@ public class CartProducts {
     private int approved;
 
 
+    @Id
+    @Column(name = "CartID")
     public int getCartId() {
         return cartId;
     }
@@ -24,6 +26,8 @@ public class CartProducts {
         this.cartId = cartId;
     }
 
+    @Id
+    @Column(name = "ProductID")
     public int getProductId() {
         return productId;
     }
@@ -32,6 +36,9 @@ public class CartProducts {
         this.productId = productId;
     }
 
+
+    @Basic
+    @Column(name = "Quantity")
     public int getQuantity() {
         return quantity;
     }
@@ -40,6 +47,8 @@ public class CartProducts {
         this.quantity = quantity;
     }
 
+    @Id
+    @Column(name = "ReferenceID")
     public int getReferenceId() {
         return referenceId;
     }
@@ -48,6 +57,8 @@ public class CartProducts {
         this.referenceId = referenceId;
     }
 
+    @Id
+    @Column(name = "BranchID")
     public int getBranchId() {
         return branchId;
     }
@@ -56,6 +67,8 @@ public class CartProducts {
         this.branchId = branchId;
     }
 
+    @Id
+    @Column(name = "Approved")
     public int getApproved() {
         return approved;
     }
