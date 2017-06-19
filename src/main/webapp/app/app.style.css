@@ -11,3 +11,54 @@ body {
 .container-800 {
     max-width: 800px;
 }
+
+.modal-body .form-horizontal .col-xs-2,
+.modal-body .form-horizontal .col-xs-10 {
+    width: 100%
+}
+
+.modal-body .form-horizontal .control-label {
+    text-align: left;
+}
+
+.product-modal-header {
+    padding: 0;
+    position: relative;
+}
+.product-modal-header img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 250px;
+}
+.product-modal-header .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 15px;
+}
+.product-modal-header .modal-title {
+    position: absolute;
+    padding: 15px;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(255,255,255,0.5);
+}
+
+/*.modal {*/
+    /*text-align: center;*/
+    /*padding: 0!important;*/
+/*}*/
+
+/*.modal::before {*/
+    /*content: '';*/
+    /*display: inline-block;*/
+    /*height: 100%;*/
+    /*vertical-align: middle;*/
+    /*margin-right: -4px;*/
+/*}*/
+
+/*.modal-dialog {*/
+    /*display: inline-block;*/
+    /*text-align: left;*/
+    /*vertical-align: middle;*/
+/*}*/

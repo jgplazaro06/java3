@@ -3,7 +3,7 @@
     <p>Lorem ipsum dolor sit amet consectur adisciping elit.</p>
 </div>
 
-<div class="page-header">
+<div class="page-header" ng-show="!vm.isLoadingProducts">
     <h3>Products <small ng-show="!vm.isLoadingProducts && vm.products.length > 0">Page {{vm.currentPage}} out of {{vm.maxPages}}</small></h3>
 </div>
 
@@ -19,11 +19,11 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-6" style="padding-bottom:5px;">
-        <button type="button" class="btn btn-default btn-block">Show only what's available</button>
+<div class="row" ng-show="!vm.isLoadingProducts">
+    <div class="col-sm-4" style="padding-bottom:5px;">
+        <button type="button" class="btn btn-default btn-block" ng-model="vm.filter.showOnlyAvailable" uib-btn-checkbox>Show only what's available</button>
     </div>
-    <div class="col-sm-6" style="padding-bottom:5px;">
+    <div class="col-sm-4" style="padding-bottom:5px;">
         <div class="btn-group btn-block" uib-dropdown is-open="vm.isSortMethodDropdownOpen">
             <button id="sort-button" type="button" class="btn btn-default btn-block" uib-dropdown-toggle>
                 Sort by {{vm.sortMethodText}} <span class="caret"></span>
@@ -39,10 +39,13 @@
             </ul>
         </div>
     </div>
+    <div class="col-sm-4" style="padding-bottom:5px;">
+        <button type="button" class="btn btn-default btn-block" ng-click="vm.refreshProducts()">Refresh products</button>
+    </div>
 </div>
 
 <div class="row" ng-show="!vm.isLoadingProducts && vm.products.length > 0" style="margin-top: 20px;">
-    <div class="col-sm-4 col-md-3" ng-repeat="product in vm.products">
+    <div class="col-sm-3 col-md-3" ng-repeat="product in vm.products">
         <div class="thumbnail" style="cursor: pointer;" ng-click="vm.viewProduct(product.productId)">
             <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDI0MiAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTVjYmJhYzA3MWUgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNWNiYmFjMDcxZSI+PHJlY3Qgd2lkdGg9IjI0MiIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI4OS44MDQ2ODc1IiB5PSIxMDUuMSI+MjQyeDIwMDwvdGV4dD48L2c+PC9nPjwvc3ZnPg=="
                  alt="{{product.productName}}" style="width: 100%">

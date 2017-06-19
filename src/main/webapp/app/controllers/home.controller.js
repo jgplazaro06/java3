@@ -5,9 +5,9 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['ProductService'];
+    HomeController.$inject = ['ProductService', 'ProductModalService'];
 
-    function HomeController(ProductService) {
+    function HomeController(ProductService, ProductModalService) {
         var vm = this;
         vm.products = [];
         vm.isLoadingProducts = true;
@@ -19,13 +19,17 @@
         vm.disabledPreviousPage = false;
         vm.disabledNextPage = false;
 
-        vm.filter = '';
-        vm.sortMethod = '';
+        vm.filter = {};
+        vm.filter.showOnlyAvailable = false;
         vm.isSortMethodDropdownOpen = false;
+        vm.sortMethod = '';
 
         vm.viewProduct = function(productId) {
-            ProductService.getProduct(productId).then(function(product) {
-                console.log(product);
+            var productModal = ProductModalService.open(productId);
+            productModal.result.catch(function(reason) {
+                if (reason === 'no-product-id') {
+                    // TODO: show an error alert that there was no product id passed to the modal
+                }
             });
         };
         vm.refreshPagination = function() {

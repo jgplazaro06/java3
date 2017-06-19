@@ -10,24 +10,12 @@
     function MockProductServiceImpl($q) {
         var products = [
             {
-                productId: 0,
+                productId: 1,
                 productName: 'What is love?',
                 productPrices: [
                     {
-                        referenceId: 0,
-                        productId: 0,
-                        productPrice: 100.0,
-                        referenceDate: new Date()
-                    }
-                ]
-            },
-            {
-                productId: 1,
-                productName: 'Koi wa nandesuka?',
-                productPrices: [
-                    {
-                        referenceId: 0,
-                        productId: 0,
+                        referenceId: 1,
+                        productId: 1,
                         productPrice: 100.0,
                         referenceDate: new Date()
                     }
@@ -35,11 +23,11 @@
             },
             {
                 productId: 2,
-                productName: 'Tabemashyou!',
+                productName: 'Koi wa nandesuka?',
                 productPrices: [
                     {
-                        referenceId: 0,
-                        productId: 0,
+                        referenceId: 2,
+                        productId: 2,
                         productPrice: 100.0,
                         referenceDate: new Date()
                     }
@@ -47,11 +35,23 @@
             },
             {
                 productId: 3,
+                productName: 'Tabemashyou!',
+                productPrices: [
+                    {
+                        referenceId: 3,
+                        productId: 3,
+                        productPrice: 100.0,
+                        referenceDate: new Date()
+                    }
+                ]
+            },
+            {
+                productId: 4,
                 productName: 'Tumaba ka ata???',
                 productPrices: [
                     {
-                        referenceId: 0,
-                        productId: 0,
+                        referenceId: 4,
+                        productId: 4,
                         productPrice: 100.0,
                         referenceDate: new Date()
                     }
