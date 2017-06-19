@@ -3,12 +3,13 @@
         .module('app')
         .controller('ProductModalController', ProductModalController);
 
-    ProductModalController.$inject = ['$uibModalInstance', 'ProductService', 'UserService',
-                                      'BranchProductsService', 'productId'];
+    ProductModalController.$inject = ['$state', '$uibModalInstance', 'ProductService', 'UserService',
+                                      'BranchProductsService', 'AuthService', 'productId'];
 
-    function ProductModalController($uibModalInstance, ProductService, UserService,
-                                    BranchProductsService, productId) {
+    function ProductModalController($state, $uibModalInstance, ProductService, UserService,
+                                    BranchProductsService, AuthService, productId) {
         var vm = this;
+        vm.isLoggedIn = false;
         vm.isLoading = true;
         vm.isAdding = false;
         vm.quantity = 1;
@@ -18,6 +19,10 @@
 
         vm.close = function() {
             $uibModalInstance.dismiss('closed');
+        };
+        vm.login = function() {
+            $uibModalInstance.dismiss('closed');
+            $state.go('login');
         };
         vm.addToCart = function() {
             if (vm.selectedBranch === null || vm.quantity < 1) {
@@ -40,11 +45,14 @@
                     // TODO: show not product found
                 } else {
                     vm.product = product;
-                    BranchProductsService.getBranchesForProduct(productId).then(function(branches) {
-                        vm.productBranches = branches;
-                        vm.isLoading = false;
-                    });
+                    return BranchProductsService.getBranchesForProduct(productId);
                 }
+            }).then(function(branches) {
+                vm.productBranches = branches;
+                return AuthService.isLoggedIn();
+            }).then(function(isLoggedIn) {
+                vm.isLoggedIn = isLoggedIn;
+                vm.isLoading = false;
             });
         } else {
             $uibModalInstance.dismiss('no-product-id');

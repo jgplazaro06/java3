@@ -50,5 +50,10 @@
     </form>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-primary" ng-click="vm.addToCart()" ng-disabled="vm.isAdding">Add to cart</button>
+    <div class="alert alert-warning" ng-show="!vm.isLoading && !vm.isLoggedIn">
+        Oops! You are not allowed to add the product to a cart if you're not logged in.
+        Click <a class="alert-link" ng-click="vm.login()">here</a> to login.
+    </div>
+    <button type="button" class="btn btn-primary" ng-click="vm.addToCart()"
+            ng-disabled="vm.isAdding || !vm.isLoggedIn">Add to cart</button>
 </div>
