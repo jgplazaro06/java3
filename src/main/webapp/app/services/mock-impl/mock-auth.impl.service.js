@@ -36,7 +36,7 @@
                         // access the requested resource using information
                         // in the userdata.
 
-                        deferred.resolve();
+                        deferred.resolve(userdata);
                     } else {
                         deferred.reject();
                     }

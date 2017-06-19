@@ -64,7 +64,11 @@
                 var deferred = $q.defer();
 
                 setTimeout(function() {
-                    deferred.resolve(products);
+                    var pricedProducts = products.map(function(product) {
+                        product.productPrice = product.productPrices[0];
+                        return product;
+                    });
+                    deferred.resolve(pricedProducts);
                 }, 1000);
 
                 return deferred.promise;
@@ -75,6 +79,9 @@
                 setTimeout(function() {
                     var filteredProducts = products.filter(function(product) {
                         return product.productId === id;
+                    }).map(function(product) {
+                        product.productPrice = product.productPrices[0];
+                        return product;
                     });
                     deferred.resolve(filteredProducts[0]);
                 }, 1000);
