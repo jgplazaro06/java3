@@ -13,10 +13,9 @@ public class CartProducts {
     private int quantity;
     private int referenceId;
     private int branchId;
+    private int approved;
 
 
-    @Id
-    @Column(name = "CartID")
     public int getCartId() {
         return cartId;
     }
@@ -25,9 +24,6 @@ public class CartProducts {
         this.cartId = cartId;
     }
 
-
-    @Id
-    @Column(name = "ProductID")
     public int getProductId() {
         return productId;
     }
@@ -36,9 +32,6 @@ public class CartProducts {
         this.productId = productId;
     }
 
-
-    @Basic
-    @Column(name = "Quantity")
     public int getQuantity() {
         return quantity;
     }
@@ -47,8 +40,6 @@ public class CartProducts {
         this.quantity = quantity;
     }
 
-    @Id
-    @Column(name = "ReferenceID")
     public int getReferenceId() {
         return referenceId;
     }
@@ -57,14 +48,20 @@ public class CartProducts {
         this.referenceId = referenceId;
     }
 
-    @Id
-    @Column(name = "BranchID")
     public int getBranchId() {
         return branchId;
     }
 
     public void setBranchId(int branchId) {
         this.branchId = branchId;
+    }
+
+    public int getApproved() {
+        return approved;
+    }
+
+    public void setApproved(int approved) {
+        this.approved = approved;
     }
 
     @Override
@@ -78,7 +75,8 @@ public class CartProducts {
         if (productId != that.productId) return false;
         if (quantity != that.quantity) return false;
         if (referenceId != that.referenceId) return false;
-        return branchId == that.branchId;
+        if (branchId != that.branchId) return false;
+        return approved == that.approved;
     }
 
     @Override
@@ -88,6 +86,7 @@ public class CartProducts {
         result = 31 * result + quantity;
         result = 31 * result + referenceId;
         result = 31 * result + branchId;
+        result = 31 * result + approved;
         return result;
     }
 }

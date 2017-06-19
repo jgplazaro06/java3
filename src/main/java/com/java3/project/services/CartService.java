@@ -103,18 +103,18 @@ public class CartService {
         return cart;
     }
 
-    //approve cart
-    public void approveCart(int userId){
-        Cart cart = getPendingCart(userId);
-        cart.setStatus(2);
-        cartRepository.save(cart);
-    }
-    //deny cart
-    public void denyCart(int userId){
-        Cart cart = getPendingCart(userId);
-        cart.setStatus(3);
-        cartRepository.save(cart);
-    }
+//    //approve cart
+//    public void approveCart(int userId){
+//        Cart cart = getPendingCart(userId);
+//        cart.setStatus(2);
+//        cartRepository.save(cart);
+//    }
+//    //deny cart
+//    public void denyCart(int userId){
+//        Cart cart = getPendingCart(userId);
+//        cart.setStatus(3);
+//        cartRepository.save(cart);
+//    }
 
     public class UnavailableBranchProduct extends RuntimeException {
         private int productId;

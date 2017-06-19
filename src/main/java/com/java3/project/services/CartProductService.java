@@ -36,6 +36,10 @@ public class CartProductService {
         return cartProductRepository.getAllByCartIdAndBranchId(cartId, branchId);
     }
 
+    public List<CartProducts> getCartProductsByBranchId(int branchId){
+        return cartProductRepository.getAllByBranchId(branchId);
+    }
+
     public void createCartProduct(int cartId, int productId,int branchId, int quantity, int referenceId){
         CartProducts cartProduct = new CartProducts();
         cartProduct.setCartId(cartId);
@@ -44,6 +48,7 @@ public class CartProductService {
         cartProduct.setQuantity(quantity);
         ProductPrices productPrice = productPriceRepository.getByProductId(productId);
         cartProduct.setReferenceId(productPrice.getReferenceId());
+        cartProduct.setApproved(0);
     }
 
     public void deleteCartProduct(int cartId, int productId){
@@ -51,9 +56,25 @@ public class CartProductService {
     }
 
     public void updateCartProduct(int cartId, int productId, int quantity){
-        CartProducts cartProduct = new CartProducts();
-        cartProduct = cartProductRepository.getByCartIdAndProductId(cartId, productId);
+        CartProducts cartProduct = cartProductRepository.getByCartIdAndProductId(cartId, productId);
         cartProduct.setQuantity(quantity);
+        cartProductRepository.save(cartProduct);
+    }
+
+    //0 - pending
+    //1 - approved
+    //2 - denied
+    //approve item
+    public void approveCartProduct(int cartId, int productId){
+        CartProducts cartProduct = cartProductRepository.getByCartIdAndProductId(cartId, productId);
+        cartProduct.setApproved(1);
+        cartProductRepository.save(cartProduct);
+    }
+    //deny item
+
+    public void denyCartProduct(int cartId, int productId){
+        CartProducts cartProduct = cartProductRepository.getByCartIdAndProductId(cartId, productId);
+        cartProduct.setApproved(2);
         cartProductRepository.save(cartProduct);
     }
 }

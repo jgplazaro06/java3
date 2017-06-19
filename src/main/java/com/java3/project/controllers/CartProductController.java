@@ -31,6 +31,11 @@ public class CartProductController {
                 (cartId, branchId), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/cartproducts/branch/{branchId}", method = RequestMethod.GET)
+    public ResponseEntity<?> getAllCartProductsByBranchId(@PathVariable int branchId){
+        return new ResponseEntity<Object>(cartProductService.getCartProductsByBranchId(branchId), HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/cartproducts/create", method = RequestMethod.POST)
     @ResponseBody
     public void createUser(@RequestBody CartProductRequestBody cartProductRequestBody) {
