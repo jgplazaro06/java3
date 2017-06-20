@@ -32,7 +32,7 @@
             vm.isAdding = true;
             UserService.addProductToCart(vm.product.productId, vm.quantity, vm.selectedBranch.branchId)
                 .then(function() {
-                    $uibModalInstance.dismiss('added-to-cart');
+                    $uibModalInstance.close('added-to-cart');
                     vm.isAdding = false;
                 }, function() {
                     vm.isAdding = false;

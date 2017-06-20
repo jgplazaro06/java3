@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="app/styles/login-register.css">
 </head>
 <body ng-app="app">
+    <app-alerts></app-alerts>
     <app-nav></app-nav>
     <div class="container">
         <div ui-view></div>
@@ -41,10 +42,13 @@
     <script src="app/services/product.service.js"></script>
     <script src="app/services/branch-products.service.js"></script>
     <script src="app/services/product-modal.service.js"></script>
+    <script src="app/services/app-alerts.service.js"></script>
 
     <!-- DIRECTIVES -->
     <script src="app/directives/app-nav/app-nav.controller.js"></script>
     <script src="app/directives/app-nav/app-nav.directive.js"></script>
+    <script src="app/directives/app-alerts/app-alerts.controller.js"></script>
+    <script src="app/directives/app-alerts/app-alerts.directive.js"></script>
 
     <!-- CONTROLLERS -->
     <script src="app/controllers/home.controller.js"></script>

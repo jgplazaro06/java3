@@ -44,21 +44,12 @@ body {
     background-color: rgba(255,255,255,0.5);
 }
 
-/*.modal {*/
-    /*text-align: center;*/
-    /*padding: 0!important;*/
-/*}*/
-
-/*.modal::before {*/
-    /*content: '';*/
-    /*display: inline-block;*/
-    /*height: 100%;*/
-    /*vertical-align: middle;*/
-    /*margin-right: -4px;*/
-/*}*/
-
-/*.modal-dialog {*/
-    /*display: inline-block;*/
-    /*text-align: left;*/
-    /*vertical-align: middle;*/
-/*}*/
+app-alerts {
+    position: fixed;
+    width: 100%;
+}
+app-alerts .alert-container {
+    padding: 0 50px;
+    width: 600px;
+    margin: 0 auto;
+}

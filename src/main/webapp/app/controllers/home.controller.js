@@ -5,9 +5,9 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['ProductService', 'ProductModalService'];
+    HomeController.$inject = ['ProductService', 'ProductModalService', 'AppAlertsService'];
 
-    function HomeController(ProductService, ProductModalService) {
+    function HomeController(ProductService, ProductModalService, AppAlertsService) {
         var vm = this;
         vm.products = [];
         vm.isLoadingProducts = true;
@@ -26,7 +26,9 @@
 
         vm.viewProduct = function(productId) {
             var productModal = ProductModalService.open(productId);
-            productModal.result.catch(function(reason) {
+            productModal.result.then(function() {
+                AppAlertsService.addAlert('success', 'The product was successfully added to the cart!', 3000);
+            }, function(reason) {
                 if (reason === 'no-product-id') {
                     // TODO: show an error alert that there was no product id passed to the modal
                 }
