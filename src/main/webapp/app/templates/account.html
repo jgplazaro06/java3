@@ -1,0 +1,68 @@
+<div class="container container-800" ng-show="!vm.hideAll">
+    <div class="page-header">
+        <h3>Account Details</h3>
+    </div>
+
+    <div class="alert alert-success alert-dismissible" role="alert" ng-show="vm.shouldShowEmailSuccessful && vm.changeEmailSuccessful">
+        <button type="button" class="close" aria-label="Close" ng-click="vm.shouldShowEmailSuccessful = false"><span aria-hidden="true">&times;</span></button>
+        <strong>Yahoo!</strong> Your email was successfully changed.
+    </div>
+    <div class="alert alert-danger alert-dismissible" role="alert" ng-show="vm.shouldShowEmailSuccessful && !vm.changeEmailSuccessful">
+        <button type="button" class="close" aria-label="Close" ng-click="vm.shouldShowEmailSuccessful = false"><span aria-hidden="true">&times;</span></button>
+        <strong>oh no!</strong> Your email was not successfully changed.
+    </div>
+    <div class="alert alert-success alert-dismissible" role="alert" ng-show="vm.shouldShowPasswordSuccessful && vm.changePasswordSuccessful">
+        <button type="button" class="close" aria-label="Close" ng-click="vm.shouldShowPasswordSuccessful = false"><span aria-hidden="true">&times;</span></button>
+        <strong>Yahoo!</strong> Your password was successfully changed.
+    </div>
+    <div class="alert alert-danger alert-dismissible" role="alert" ng-show="vm.shouldShowPasswordSuccessful && !vm.changePasswordSuccessful">
+        <button type="button" class="close" aria-label="Close" ng-click="vm.shouldShowPasswordSuccessful = false"><span aria-hidden="true">&times;</span></button>
+        <strong>oh no!</strong> Your password was not successfully changed.
+    </div>
+
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Full Name</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">{{vm.accountDetails.fullName}}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Gender</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">{{vm.accountDetails.genderText}}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Address</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">{{vm.accountDetails.address}}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Contact Number</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">{{vm.accountDetails.contactNumber}}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">{{vm.accountDetails.email}}</p>
+            </div>
+        </div>
+    </form>
+    <div class="panel panel-warning">
+        <div class="panel-heading">Update credentials</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-6">
+                    <button class="btn btn-default btn-block" ng-click="">Change email</button>
+                </div>
+                <div class="col-xs-6">
+                    <button class="btn btn-default btn-block" ng-click="vm.changePassword()">Change password</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

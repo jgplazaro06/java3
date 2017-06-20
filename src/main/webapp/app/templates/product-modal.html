@@ -1,0 +1,59 @@
+<div class="modal-header product-modal-header">
+    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDI0MiAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTVjYmJhYzA3MWUgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNWNiYmFjMDcxZSI+PHJlY3Qgd2lkdGg9IjI0MiIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI4OS44MDQ2ODc1IiB5PSIxMDUuMSI+MjQyeDIwMDwvdGV4dD48L2c+PC9nPjwvc3ZnPg=="
+         alt="{{product.productName}}" style="width: 100%">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+            ng-click="vm.close()"  ng-disabled="vm.isAdding">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">{{vm.product.productName}}</h4>
+</div>
+<div class="modal-body">
+    <div class="row" ng-show="vm.isLoading">
+        <div class="col-xs-12">
+            <div class="well">Loading...</div>
+        </div>
+    </div>
+    <form class="form-horizontal" role="form" ng-show="!vm.isLoading">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="productPrice">Price</label>
+                    <div class="col-sm-9">
+                        <p class="form-control-static" id="productPrice">Php {{vm.product.productPrice.productPrice}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="productSubtotal">Subtotal</label>
+                    <div class="col-sm-9">
+                        <p class="form-control-static" id="productSubtotal">Php {{vm.product.productPrice.productPrice * vm.quantity}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="productQuantity">Quantity</label>
+            <div class="col-sm-9">
+                <input type="number" id="productQuantity" class="form-control" ng-model="vm.quantity" ng-disabled="vm.isAdding"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="selectBranchList" class="col-sm-3 control-label">Choose a branch to order from</label>
+            <div class="col-sm-9">
+                <!-- repeat for branch list -->
+                <select class="form-control" id="selectBranchList" ng-model="vm.selectedBranch" ng-disabled="vm.isAdding">
+                    <option ng-repeat="branch in vm.productBranches" ng-value="branch">{{branch.address}}</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <div class="alert alert-warning" ng-show="!vm.isLoading && !vm.isLoggedIn">
+        Oops! You are not allowed to add the product to a cart if you're not logged in.
+        Click <a class="alert-link" ng-click="vm.login()">here</a> to login.
+    </div>
+    <button type="button" class="btn btn-primary" ng-click="vm.addToCart()"
+            ng-disabled="vm.isAdding || !vm.isLoggedIn">Add to cart</button>
+</div>

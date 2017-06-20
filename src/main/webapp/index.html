@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Title</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="app/app.style.css">
+    <link rel="stylesheet" href="app/styles/login-register.css">
+</head>
+<body ng-app="app">
+    <app-alerts></app-alerts>
+    <app-nav></app-nav>
+    <div class="container">
+        <div ui-view></div>
+
+        <div class="footer" style="margin-top: 20px;">
+            <p style="text-align:center; color:dimgray; font-size:8pt;">Copyright &copy; 2017</p>
+            <p style="text-align:center; color:dimgray; font-size:8pt;">Java 3 Project by John Lazaro and Ezekiel Flores</p>
+        </div>
+    </div>
+
+    <!-- ANGULAR STUFF -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+    <!-- WEB APPLICATION STUFF -->
+    <script src="app/app.module.js"></script>
+    <script src="app/app.state.js"></script>
+
+    <!-- SERVICES -->
+    <script src="app/services/mock-impl/mock-auth.impl.service.js"></script>
+    <script src="app/services/mock-impl/mock-user.impl.service.js"></script>
+    <script src="app/services/mock-impl/mock-product.impl.service.js"></script>
+    <script src="app/services/mock-impl/mock-branch-products.impl.service.js"></script>
+    <script src="app/services/auth.service.js"></script>
+    <script src="app/services/user.service.js"></script>
+    <script src="app/services/product.service.js"></script>
+    <script src="app/services/branch-products.service.js"></script>
+    <script src="app/services/product-modal.service.js"></script>
+    <script src="app/services/app-alerts.service.js"></script>
+
+    <!-- DIRECTIVES -->
+    <script src="app/directives/app-nav/app-nav.controller.js"></script>
+    <script src="app/directives/app-nav/app-nav.directive.js"></script>
+    <script src="app/directives/app-alerts/app-alerts.controller.js"></script>
+    <script src="app/directives/app-alerts/app-alerts.directive.js"></script>
+
+    <!-- CONTROLLERS -->
+    <script src="app/controllers/home.controller.js"></script>
+    <script src="app/controllers/login.controller.js"></script>
+    <script src="app/controllers/register.controller.js"></script>
+    <script src="app/controllers/cart.controller.js"></script>
+    <script src="app/controllers/account.controller.js"></script>
+    <script src="app/controllers/password-update.controller.js"></script>
+    <script src="app/controllers/product-modal.controller.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "java3proj",
+  "description": "Java 3 Project",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.6.4",
+    "angular-animate": "1.6.4",
+    "angular-bootstrap": "2.5.0",
+    "angular-ui-router": "^1.0.4",
+    "bootstrap": "^3.3.7"
+  }
+}

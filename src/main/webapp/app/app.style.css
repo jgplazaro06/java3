@@ -1,0 +1,55 @@
+html {
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+}
+
+body {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.container-800 {
+    max-width: 800px;
+}
+
+.modal-body .form-horizontal .col-xs-2,
+.modal-body .form-horizontal .col-xs-10 {
+    width: 100%
+}
+
+.modal-body .form-horizontal .control-label {
+    text-align: left;
+}
+
+.product-modal-header {
+    padding: 0;
+    position: relative;
+}
+.product-modal-header img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 250px;
+}
+.product-modal-header .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 15px;
+}
+.product-modal-header .modal-title {
+    position: absolute;
+    padding: 15px;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(255,255,255,0.5);
+}
+
+app-alerts {
+    position: fixed;
+    width: 100%;
+}
+app-alerts .alert-container {
+    padding: 0 50px;
+    width: 600px;
+    margin: 0 auto;
+}

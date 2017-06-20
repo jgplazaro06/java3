@@ -10,6 +10,10 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
  * Created by Bryan on 6/15/2017.
  */
 @SpringBootApplication
+@EnableAutoConfiguration(exclude = {
+        DataSourceAutoConfiguration.class,
+        HibernateJpaAutoConfiguration.class
+})
 public class Application {
 
     public static void main(String[] args) {
